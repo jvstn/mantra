@@ -31,4 +31,5 @@ const HeadingWrap = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: -10vh;
 `

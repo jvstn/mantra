@@ -1,14 +1,23 @@
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import { colors } from "../theme";
+import { useState } from "react";
+import styled from "styled-components";
+import { Button } from "./Button";
+import { ButtonGroup } from "./ButtonGroup";
 import { Heading } from "./Heading";
-
-interface CenterPanelProps {}
+import { Timer } from "./Timer";
 
 export const CenterPanel = () => {
+  const [duration, setDuration] = useState(61);
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleActive = () => setIsActive(!isActive);
   return (
     <RaisedCanvas>
       <Heading />
+      <ButtonGroup setDuration={setDuration} />
+      <Timer duration={duration} isActive={isActive} />
+      <StartWrap>
+        <Button text={!isActive ? "Start" : "Stop"} onClick={toggleActive} />
+      </StartWrap>
     </RaisedCanvas>
   );
 };
@@ -23,4 +32,12 @@ const RaisedCanvas = styled.div`
     12px 16px 16px rgba(0, 0, 0, 0.12);
   margin-left: auto;
   margin-right: auto;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StartWrap = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
