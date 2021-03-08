@@ -14,7 +14,7 @@ export const ButtonGroup = ({ setDuration }: ButtonGroupProps) => {
   return (
     <div>
       <ButtonWrap>
-        <Button amountOfSeconds={15} onClick={handleClick} />
+        <Button amountOfSeconds={5} onClick={handleClick} />
         <Button amountOfSeconds={30} onClick={handleClick} />
       </ButtonWrap>
       <ButtonWrap>

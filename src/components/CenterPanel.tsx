@@ -1,28 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
 import { ButtonGroup } from "./ButtonGroup";
 import { Heading } from "./Heading";
 import { Timer } from "./Timer";
 
-export const CenterPanel = () => {
+interface CP_Props {
+  setTimerComplete: React.Dispatch<React.SetStateAction<boolean>>;
+  setElapsedTime: React.Dispatch<React.SetStateAction<number>>;
+  elapsedTime: number;
+}
+
+export const CenterPanel = ({ setTimerComplete, setElapsedTime, elapsedTime }: CP_Props) => {
   const [duration, setDuration] = useState(61);
   const [isActive, setIsActive] = useState(false);
+
+  
 
   const toggleActive = () => setIsActive(!isActive);
   return (
     <RaisedCanvas>
       <Heading />
+
       <ButtonGroup setDuration={setDuration} />
-      <Timer duration={duration} isActive={isActive} />
+      <Timer
+        duration={duration}
+        isActive={isActive}
+        setTimerComplete={setTimerComplete}
+        setElapsedTime={setElapsedTime}
+        
+
+      />
       <StartWrap>
-        <Button text={!isActive ? "Start" : "Stop"} onClick={toggleActive} />
+        {console.log(duration, elapsedTime)}
+        
+        <Button text={!isActive ? "Start" : "Pause"} onClick={toggleActive} />
       </StartWrap>
     </RaisedCanvas>
   );
 };
 
-const RaisedCanvas = styled.div`
+export const RaisedCanvas = styled.div`
   background-color: #c5ebc3;
   height: 80vh;
   width: 50vh;
