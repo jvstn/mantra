@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { Mantra } from '../data/Mantra'
-import { Button } from './Button'
 
 export const MantraBox = () => {
   const [currentMantra, setCurrentMantra] = useState('Generate New Mantra =>')
