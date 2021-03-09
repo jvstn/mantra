@@ -1,3 +1,4 @@
+import { type } from "node:os";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import styled from "styled-components";
 import { colors } from "../theme";
@@ -9,6 +10,8 @@ interface TimerProps {
   setTimerComplete: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+type descriptor = 0 | "minutes" | "minute" | "seconds" | undefined;
+
 export const Timer = ({
   duration,
   setElapsedTime,
@@ -16,27 +19,27 @@ export const Timer = ({
   isActive
 }: TimerProps) => {
   const renderTime = (
-    remainingTime: number,
-    elapsedTime: number,
-    unit: string
+    remainingTime: number | undefined,
+    elapsedTime: number | undefined,
+    unit: descriptor
   ) => {
-    setElapsedTime(Math.floor(elapsedTime));
+    elapsedTime && setElapsedTime(Math.floor(elapsedTime));
     if (remainingTime === 0) {
       setTimerComplete(true);
     }
     return (
       <div>
         <Time>
-          {Math.floor(remainingTime)} <br /> {unit}
+          {remainingTime && Math.floor(remainingTime)} <br /> {unit}
         </Time>
       </div>
     );
   };
 
-  const getTimeInMinutes = (time: number) => (time > 60 ? time / 60 : time);
+  const getTimeInMinutes = (time: number | undefined) => time && (time > 60 ? time / 60 : time);
 
-  const getDescriptor = (time: number) =>
-    time > 120 ? "minutes" : time > 60 ? "minute" : "seconds";
+  const getDescriptor = (time: number | undefined) => time && (time > 120 ? "minutes" : time > 60 ? "minute" : "seconds")
+  
 
   return (
     <TimerWrap>

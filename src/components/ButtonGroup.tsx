@@ -25,7 +25,7 @@ export const ButtonGroup = ({ setDuration }: ButtonGroupProps) => {
   )
 }
 
-const ButtonWrap = styled.div`
+export const ButtonWrap = styled.div`
   display: flex;
   justify-content: space-around;
   flex: 0 50%;

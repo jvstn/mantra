@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface ButtonProps {
   text?: string;
   amountOfSeconds?: number;
-  onClick: any;
+  onClick?: any;
 }
 
 export const Button = ({ text,  amountOfSeconds, onClick }: ButtonProps) => {
