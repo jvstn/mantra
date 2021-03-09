@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { MantraBox } from './MantraBox'
 import { Button } from "./Button";
 import { ButtonGroup } from "./ButtonGroup";
 import { Heading } from "./Heading";
@@ -21,7 +22,7 @@ export const CenterPanel = ({ setTimerComplete, setElapsedTime, elapsedTime }: C
   return (
     <RaisedCanvas>
       <Heading />
-
+      <MantraBox />
       <ButtonGroup setDuration={setDuration} />
       <Timer
         duration={duration}
