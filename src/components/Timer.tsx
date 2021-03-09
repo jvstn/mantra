@@ -1,4 +1,3 @@
-import { type } from "node:os";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import styled from "styled-components";
 import { colors } from "../theme";
