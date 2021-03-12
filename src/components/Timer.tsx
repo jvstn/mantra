@@ -47,6 +47,7 @@ export const Timer = ({
         
         isPlaying={isActive}
         duration={duration}
+        
         size={150}
         colors={[[`${colors.secondaryLight}`, 1.0]]}
       >

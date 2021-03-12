@@ -6,12 +6,11 @@ import { SummaryPanel } from "./components/SummaryPanel";
 
 export const App = () => {
   const [timerComplete, setTimerComplete] = useState(false);
-  const [elapsedTime, setElapsedTime] = useState(0);
+  const [elapsedTime, setElapsedTime] = useState(0)
 
   return (
-    <>
-      {console.log(timerComplete)
-      }
+    <div>
+      
       {!timerComplete && (
         <CenterPanel
           setTimerComplete={setTimerComplete}
@@ -21,7 +20,7 @@ export const App = () => {
       )}
 
       {timerComplete && <SummaryPanel elapsedTime={elapsedTime} />}
-    </>
+    </div>
   );
 };
 

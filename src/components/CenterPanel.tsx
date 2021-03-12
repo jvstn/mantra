@@ -13,7 +13,7 @@ interface CP_Props {
 }
 
 export const CenterPanel = ({ setTimerComplete, setElapsedTime, elapsedTime }: CP_Props) => {
-  const [duration, setDuration] = useState(61);
+  const [duration, setDuration] = useState(60.1);
   const [isActive, setIsActive] = useState(false);
 
   
@@ -54,6 +54,14 @@ export const RaisedCanvas = styled.div`
   margin-top: 10vh;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 760px) {
+    height: 100vh;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 0;
+
+  }
 `;
 
 const StartWrap = styled.div`

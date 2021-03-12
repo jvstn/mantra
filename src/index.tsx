@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
+import '@fontsource/lato'
+import '@fontsource/open-sans'
+
 
 ReactDOM.render(
   <React.StrictMode>

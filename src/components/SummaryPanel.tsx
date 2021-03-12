@@ -1,4 +1,4 @@
-
+import styled from "styled-components";
 import { Button } from "./Button";
 import { ButtonWrap } from "./ButtonGroup";
 import { RaisedCanvas } from "./CenterPanel";
@@ -14,14 +14,20 @@ export const SummaryPanel = ({ elapsedTime }: SP_Props) => {
   return (
     <RaisedCanvas>
       <Heading />
-      <h1>You meditated for {elapsedTime} seconds</h1>
-      <p>
-        Congratulations you meditated for {elapsedTime} seconds. That may not
-        seem like a lot but even the smallest moments can have a big impact.
-        Take a little bit more peace into the rest of your day{" "}
-      </p>
+      <AmountMeditated>
+        You meditated for <br/>
+        {elapsedTime}
+        <br/>
+        seconds
+      </AmountMeditated>
+      <EncouragingMessage>
+        The smallest moments can have a big impact.
+        <br />
+        <br/>
+        Take a little more peace into the rest of your day
+      </EncouragingMessage>
       <ButtonWrap>
-        <a href="mailto:?subject=Mindful%20Moments%20With%20Mantra&body=I%20spent%20a%20few%20mindful%20moments%20reflecting.%0D%0A%0D%0AYou%can%20too%20at%20%">
+        <a href="mailto:?subject=Mindful%20Moments%20With%20Mantra&body=I%20spent%20a%20few%20mindful%20moments%20reflecting.%0D%0A%0D%0AYou%can%20too%20at%20%https://minutemantra.netlify.app/">
           <Button text="Share" />
         </a>
         <Button text="New Session" onClick={handleNewSession} />
@@ -29,3 +35,15 @@ export const SummaryPanel = ({ elapsedTime }: SP_Props) => {
     </RaisedCanvas>
   );
 };
+
+const AmountMeditated = styled.h2`
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+`;
+const EncouragingMessage = styled.p`
+  padding: 0vh 6vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+`;
