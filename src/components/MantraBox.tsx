@@ -12,8 +12,9 @@ export const MantraBox = () => {
   }
   return (
     <MantraWrap>
-      <p>{currentMantra}</p>
-      <Arrow />
+      <MantraText>{currentMantra}</MantraText>
+      {currentMantra === 'Generate New Mantra' &&
+        <Arrow />}
       <RefreshButton onClick={handleNewMantra}>
         New
       </RefreshButton>
@@ -31,7 +32,7 @@ const MantraWrap = styled.div`
 const RefreshButton = styled.button`
   height: 40px;
   width: 40px;
-  margin-left: 2vh;
+  margin-left: 3vh;
   margin-top: 1vh;
   font-size: 10px;
   border: 0;
@@ -48,4 +49,9 @@ const RefreshButton = styled.button`
 const Arrow = styled(FaArrowRight)`
   align-self: center;
   margin-left: 1vh;
+`
+
+const MantraText = styled.p`
+  text-align: center;
+  max-width: 35vh;
 `
