@@ -1,22 +1,19 @@
+import { useContext } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import styled from "styled-components";
 import { colors } from "../theme";
+import { TimerRunning } from "../App";
 
 interface TimerProps {
   duration: number;
   isActive: boolean;
-  setElapsedTime: React.Dispatch<React.SetStateAction<number>>;
-  setTimerComplete: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 type descriptor = 0 | "minutes" | "minute" | "seconds" | undefined;
 
-export const Timer = ({
-  duration,
-  setElapsedTime,
-  setTimerComplete,
-  isActive
-}: TimerProps) => {
+export const Timer = ({ duration, isActive }: TimerProps) => {
+  const { setTimerComplete, setElapsedTime } = useContext(TimerRunning);
+
   const renderTime = (
     remainingTime: number | undefined,
     elapsedTime: number | undefined,
@@ -35,30 +32,27 @@ export const Timer = ({
     );
   };
 
-  const getTimeInMinutes = (time: number | undefined) => time && (time > 60 ? time / 60 : time);
+  const getTimeInMinutes = (time: number | undefined) =>
+    time && (time > 60 ? time / 60 : time);
 
-  const getDescriptor = (time: number | undefined) => time && (time > 120 ? "minutes" : time > 60 ? "minute" : "seconds")
-  
+  const getDescriptor = (time: number | undefined) =>
+    time && (time > 120 ? "minutes" : time > 60 ? "minute" : "seconds");
 
   return (
     <TimerWrap>
       <CountdownCircleTimer
         key={duration}
-        
         isPlaying={isActive}
         duration={duration}
-        
         size={150}
         colors={[[`${colors.secondaryLight}`, 1.0]]}
       >
         {({ remainingTime, elapsedTime }) => {
-          
           return renderTime(
             getTimeInMinutes(remainingTime),
             elapsedTime,
             getDescriptor(remainingTime)
           );
-          
         }}
       </CountdownCircleTimer>
     </TimerWrap>

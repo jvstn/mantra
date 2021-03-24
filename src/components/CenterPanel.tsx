@@ -6,13 +6,8 @@ import { ButtonGroup } from "./ButtonGroup";
 import { Heading } from "./Heading";
 import { Timer } from "./Timer";
 
-interface CP_Props {
-  setTimerComplete: React.Dispatch<React.SetStateAction<boolean>>;
-  setElapsedTime: React.Dispatch<React.SetStateAction<number>>;
-  elapsedTime: number;
-}
 
-export const CenterPanel = ({ setTimerComplete, setElapsedTime, elapsedTime }: CP_Props) => {
+export const CenterPanel = () => {
   const [duration, setDuration] = useState(60.1);
   const [isActive, setIsActive] = useState(false);
 
@@ -27,13 +22,8 @@ export const CenterPanel = ({ setTimerComplete, setElapsedTime, elapsedTime }: C
       <Timer
         duration={duration}
         isActive={isActive}
-        setTimerComplete={setTimerComplete}
-        setElapsedTime={setElapsedTime}
-        
-
       />
       <StartWrap>
-        {console.log(duration, elapsedTime)}
         
         <Button text={!isActive ? "Start" : "Pause"} onClick={toggleActive} />
       </StartWrap>
