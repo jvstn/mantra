@@ -1,8 +1,9 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import ReactDOM from "react-dom";
 import "./App.css";
 import { CenterPanel } from "./components/CenterPanel";
 import { SummaryPanel } from "./components/SummaryPanel";
+import BellSound from './assets/bell.wav'
 
 export const TimerRunning = createContext<any>(null);
 
@@ -10,7 +11,11 @@ export const App = () => {
   const [timerComplete, setTimerComplete] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0)
 
-  const timeActions = { setTimerComplete, setElapsedTime}
+  const timeActions = { setTimerComplete, setElapsedTime }
+  
+  let bell = new Audio(BellSound)
+
+  if (timerComplete) bell.play()
 
   return (
     <div>
@@ -21,7 +26,9 @@ export const App = () => {
         </TimerRunning.Provider>
       )}
 
-      {timerComplete && <SummaryPanel elapsedTime={elapsedTime} />}
+      {timerComplete &&
+        <SummaryPanel elapsedTime={elapsedTime} />
+      }
     </div>
   );
 };

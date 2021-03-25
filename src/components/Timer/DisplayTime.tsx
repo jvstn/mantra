@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { TimerRunning } from "../../App";
 import { colors } from "../../theme";
+
 
 interface DT_Props {
   remainingTime: number | undefined;
@@ -9,14 +10,17 @@ interface DT_Props {
   unit: descriptor;
 }
 
+
 type descriptor = 0 | "minutes" | "minute" | "seconds" | undefined;
 
 export const DisplayTime = ({ remainingTime, elapsedTime, unit }: DT_Props) => {
   const { setTimerComplete, setElapsedTime } = useContext(TimerRunning);
 
+
   elapsedTime && setElapsedTime(Math.floor(elapsedTime));
   if (remainingTime === 0) {
     setTimerComplete(true);
+    
   }
   return (
     <div>

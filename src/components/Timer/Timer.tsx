@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import styled from "styled-components";
 import { colors } from "../../theme";
-import { TimerRunning } from "../../App";
 import { DisplayTime } from "./DisplayTime";
 
 interface TimerProps {
@@ -10,10 +8,9 @@ interface TimerProps {
   isActive: boolean;
 }
 
-type descriptor = 0 | "minutes" | "minute" | "seconds" | undefined;
 
 export const Timer = ({ duration, isActive }: TimerProps) => {
-  const { setTimerComplete, setElapsedTime } = useContext(TimerRunning);
+  
 
   const getTimeInMinutes = (time: number | undefined) =>
     time && (time > 60 ? time / 60 : time);
@@ -44,11 +41,6 @@ export const Timer = ({ duration, isActive }: TimerProps) => {
   );
 };
 
-const Time = styled.p`
-  color: ${colors.secondary};
-  font-size: 1.5rem;
-  text-align: center;
-`;
 
 const TimerWrap = styled.div`
   margin-left: auto;

@@ -3,11 +3,15 @@ import { Button } from "./Button";
 import { ButtonWrap } from "./ButtonGroup";
 import { RaisedCanvas } from "./CenterPanel";
 import { Heading } from "./Heading";
+
 interface SP_Props {
   elapsedTime: number;
 }
 
 export const SummaryPanel = ({ elapsedTime }: SP_Props) => {
+
+
+
   const handleNewSession = () => {
     window.location.href = "/";
   };
