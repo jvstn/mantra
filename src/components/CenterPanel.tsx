@@ -4,7 +4,7 @@ import { MantraBox } from './MantraBox'
 import { Button } from "./Button";
 import { ButtonGroup } from "./ButtonGroup";
 import { Heading } from "./Heading";
-import { Timer } from "./Timer";
+import { Timer } from "./Timer/Timer";
 
 
 export const CenterPanel = () => {
