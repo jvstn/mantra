@@ -1,8 +1,7 @@
 import { createContext, useState } from "react";
-import ReactDOM from "react-dom";
 import "./App.css";
-import { CenterPanel } from "./components/CenterPanel";
-import { SummaryPanel } from "./components/SummaryPanel";
+import { CenterPanel } from "./components/CenterPanel/";
+import { SummaryPanel } from "./components/SummaryPanel/index";
 import BellSound from './assets/bell.wav'
 
 export const TimerRunning = createContext<any>(null);
@@ -33,4 +32,3 @@ export const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.querySelector("#root"));

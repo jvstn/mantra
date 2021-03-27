@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Button } from "./Button";
-import { ButtonWrap } from "./ButtonGroup";
-import { RaisedCanvas } from "./CenterPanel";
-import { Heading } from "./Heading";
+import  Button  from "../Button";
+import { ButtonWrap } from "../ButtonGroup";
+import { RaisedCanvas } from "../CenterPanel";
+import { Heading } from "../Heading";
 
 interface SP_Props {
   elapsedTime: number;

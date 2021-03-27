@@ -1,7 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../theme'
-import LogoPic from '../assets/logo.png'
+import { colors } from '../../theme'
+import LogoPic from '../../assets/logo.png'
 
 export const Heading = () => {
 

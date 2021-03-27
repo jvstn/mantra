@@ -16,7 +16,7 @@ export const Timer = ({ duration, isActive }: TimerProps) => {
     time && (time > 60 ? time / 60 : time);
 
   const getDescriptor = (time: number | undefined) =>
-    time && (time > 120 ? "minutes" : time > 60 ? "minute" : "seconds");
+    time && (time >= 120 ? "minutes" : time > 60 ? "minute" : "seconds");
 
   return (
     <TimerWrap>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Mantra } from '../data/Mantra'
+import { Mantra } from '../../data/Mantra'
 import { FaArrowRight } from 'react-icons/fa'
 export const MantraBox = () => {
   const [currentMantra, setCurrentMantra] = useState('Generate New Mantra')

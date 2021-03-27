@@ -13,7 +13,7 @@ interface DT_Props {
 
 type descriptor = 0 | "minutes" | "minute" | "seconds" | undefined;
 
-export const DisplayTime = ({ remainingTime, elapsedTime, unit }: DT_Props) => {
+export const DisplayTime = ({ remainingTime, elapsedTime, unit,  }: DT_Props) => {
   const { setTimerComplete, setElapsedTime } = useContext(TimerRunning);
 
 

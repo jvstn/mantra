@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../theme";
+import { colors } from "../../theme";
 
 interface ButtonProps {
   text?: string;
@@ -8,21 +8,26 @@ interface ButtonProps {
   onClick?: any;
 }
 
-export const Button = ({ text, amountOfSeconds, onClick }: ButtonProps) => {
+export default function Button({
+  text,
+  amountOfSeconds,
+  onClick,
+}: ButtonProps) {
+  const getNumberToDisplay = (amount: number) =>
+    amount > 59 ? amount / 60 : amount;
+
+  const getUnitToDisplay = (amount: number) =>
+    amount < 60 ? "seconds" : amount === 120 ? "minutes" : "minute";
+
   return (
     <StyledButton value={amountOfSeconds} onClick={onClick}>
       {amountOfSeconds &&
-        `${amountOfSeconds > 30 ? amountOfSeconds / 60 : amountOfSeconds} ${
-          amountOfSeconds < 60
-            ? "seconds"
-            : amountOfSeconds === 120
-            ? "minutes"
-            : "minute"
-        }`}
+        `${getNumberToDisplay(amountOfSeconds)} 
+        ${getUnitToDisplay(amountOfSeconds)}`}
       {text}
     </StyledButton>
   );
-};
+}
 
 const StyledButton = styled.button`
   border-radius: 20px;
